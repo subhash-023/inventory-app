@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <%- include('partials/errors') %>
+    <form action="/games/<%= game[0].id %>/update" method="post">
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" required value="<%= game[0].title %> "> 
+        <label for="release_date">Release Date: </label>
+        <input type="date" name="release_date" id="release_date" required 
+       value="<%= game[0] && game[0].release_date ? new Date(game[0].release_date).toISOString().split('T')[0] : '' %>">
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description" value="<%= game[0].description %>">
+        <button>Create</button>
+    </form>
+    <a href="/">back to home</a>
+</body>
+</html>

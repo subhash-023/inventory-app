@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1 style="color: rgb(242, 20, 20);"><%= title %></h1>
+    <% if(games.length === 0) { %>
+        <h3>No games in <%= title %></h3>
+    <% } %>
+    <ul>
+        <% for (i = 0 ; i < games.length; i++) { %>
+            <li><b><%= games[i].title %></b> |
+            <i><%= games[i].release_date.toDateString() %> </i>|
+            <em><%= games[i].description %></em>
+            <a href="/games/<%= games[i].id %>/update">edit</a>
+        </li>
+        <% } %>
+    </ul>
+    <a href="/">back to home</a>
+</body>
+</html>
